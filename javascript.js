@@ -47,12 +47,19 @@ function playRound(playerSelection, computerSelection){
 
 
 function game(){
-    let score = {"playercount": 0, 
-        "compcount": 0};
+    let score = {
+        "playercount": 0, 
+        "compcount": 0
+        }
 
     for (let i = 1; i < 6; i++){
         let computer = getComputerChoice()
         let person = prompt("Start the game by picking among 'Rock, Paper, Scissors'").toLowerCase();
+        /*
+        while(person == null){
+            let person = prompt("Looks like you picked something different. Please pick among 'Rock, Paper, Scissors'").toLowerCase();
+        }
+        */
         let round = playRound(person, computer);
         if(round == "human"){
             ++score["playercount"];
@@ -69,16 +76,14 @@ function game(){
     }
     
     if(score.playercount > score.compcount){
-        console.log("You won! Congrats!!!")
+        console.log("You won! Congratulations, maybe you should play again!!!")
     }
     else if(score.playercount < score.compcount){
         console.log("Yikes, looks like the computer got the best of ya. Try again next time!");
     }
     else{
-        console.log("Through 5 rounds, It's a Tie! Who would've thought")
+        console.log("Those were some hard-fought 5 rounds... It's a Tie! Who would've thought")
     }
-    
-    
 
 }
 
