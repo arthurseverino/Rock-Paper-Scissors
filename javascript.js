@@ -45,6 +45,16 @@ function playRound(playerSelection, computerSelection){
     }
 }   
 
+function getPlayerSelection(){
+    let person = prompt("Pick among 'Rock, Paper, Scissors'").toLowerCase();
+    if(person.toLowerCase() == "rock" || person.toLowerCase() == "paper" || person.toLowerCase() == "scissors"){
+        return person.toLowerCase()
+    }
+    else{
+        alert('That\'s not a valid choice. Please try again.')
+        getPlayerSelection();
+    }
+}
 
 function game(){
     let score = {
@@ -54,29 +64,25 @@ function game(){
 
     for (let i = 1; i < 6; i++){
         let computer = getComputerChoice()
-        let person = prompt("Start the game by picking among 'Rock, Paper, Scissors'").toLowerCase();
-        /*
-        while(person == null){
-            let person = prompt("Looks like you picked something different. Please pick among 'Rock, Paper, Scissors'").toLowerCase();
-        }
-        */
+        let person = getPlayerSelection()
+
+        console.log("Round " + i  + " is about to begin")
         let round = playRound(person, computer);
         if(round == "human"){
             ++score["playercount"];
-            console.log("W The score is: " + score.playercount + " : " + score.compcount)
+            console.log("The current score is: Player: " + score.playercount + " Computer: " + score.compcount)
         }
         else if(round == "computer"){
             ++score["compcount"];
-            console.log(" L The score is: " + score.playercount + " : " + score.compcount)
+            console.log("The current score is: Player: " + score.playercount + " Computer: " + score.compcount)
         }
         else if(round == "tie"){
-            console.log("T The score is: " + score.playercount + " : " + score.compcount)
+            console.log("The current score is: Player: " + score.playercount + " Computer: " + score.compcount)
         }
-        console.log("Round: " + i)
     }
     
     if(score.playercount > score.compcount){
-        console.log("You won! Congratulations, maybe you should play again!!!")
+        console.log("You won! Congratulations, maybe you should play again!!")
     }
     else if(score.playercount < score.compcount){
         console.log("Yikes, looks like the computer got the best of ya. Try again next time!");
