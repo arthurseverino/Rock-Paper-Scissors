@@ -1,4 +1,3 @@
-console.log("Hello")
 
 function getComputerChoice(){
     let choice = Math.random()
@@ -66,7 +65,7 @@ function game(){
         let computer = getComputerChoice()
         let person = getPlayerSelection()
 
-        console.log("Round " + i  + " is about to begin")
+        console.log("Round " + i + " is about to begin")
         let round = playRound(person, computer);
         if(round == "human"){
             ++score["playercount"];
@@ -92,8 +91,6 @@ function game(){
     }
 
 }
-
-
 
 game();
 
